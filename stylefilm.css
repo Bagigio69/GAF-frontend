@@ -82,7 +82,8 @@
     
     .colonna,
     .descrizione{
-        display: inline-block;  
+        display: inline-block; 
+        /*max-width: 50%;*/ 
     }
     .colonna{
         position: relative;
@@ -343,6 +344,11 @@
         width: 160px;
         top: 25px;
         left: 100px;
+    }
+    .colonna,
+    .descrizione{
+        display: inline-block; 
+        /*max-width: 50%;*/ 
     }
 }
 @media only screen and (max-width:390px){
