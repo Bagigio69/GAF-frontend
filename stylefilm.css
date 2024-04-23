@@ -312,10 +312,7 @@
         margin: 10px 0;
     }
     .descrizione{
-        width: fit-content;
-        height: fit-content;
         margin: 0 10px;
-        position: absolute;
     }
     .titolo_film{
         font-size: 30px;
