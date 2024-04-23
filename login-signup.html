@@ -111,6 +111,13 @@
     </div>
     <script>
      
+     document.addEventListener("DOMContentLoaded", function() {
+        const images = document.querySelectorAll('img');
+        images.forEach(image => {
+            image.setAttribute('loading', 'lazy');
+        });
+        });
+
         function clickRegistrati() {
             event.preventDefault();  //prevenire il refresh della pagina
             var email = document.getElementById("emailS").value;

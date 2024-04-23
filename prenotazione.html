@@ -141,6 +141,13 @@
     <script>
 
 //1
+document.addEventListener("DOMContentLoaded", function() {
+  const images = document.querySelectorAll('img');
+  images.forEach(image => {
+    image.setAttribute('loading', 'lazy');
+  });
+});
+
 
 document.addEventListener('DOMContentLoaded', function () {
     const selectElement = document.getElementById('activitySelect1');

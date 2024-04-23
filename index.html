@@ -214,6 +214,13 @@
       window.onload=checkLogin();
       function checkLogin() 
       {
+        document.addEventListener("DOMContentLoaded", function() {
+          const images = document.querySelectorAll('img');
+          images.forEach(image => {
+            image.setAttribute('loading', 'lazy');
+          });
+        });
+
         var userEmail = sessionStorage.getItem('email'); // Ottiene l'email dalla sessionStorage
 
         if (userEmail) { // Verifica se `userEmail` è non null e non vuota

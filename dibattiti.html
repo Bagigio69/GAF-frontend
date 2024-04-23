@@ -486,5 +486,14 @@
 <div class="disclaimer">
     <span>NOTA BENE: Alcune attività potrebbero subire variazioni. Si prega cortesemente gli studenti di leggere attentamente se l'attività a cui sono interessati richiede particolari materiali per essere svolta. Inoltre, si prega di fare attenzione in quanto alcune attività potrebbero essere disponibili solo per un singolo turno anziché due.</span>
 </div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const images = document.querySelectorAll('img');
+      images.forEach(image => {
+        image.setAttribute('loading', 'lazy');
+      });
+    });
+  </script>
+  
 </body>
 </html>
