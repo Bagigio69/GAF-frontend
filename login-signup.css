@@ -165,7 +165,7 @@ span{
      color: #0fc9e7;
      height: 30px;
      line-height: 30px;
-     transform: translate(-15px, -15px) scale(0.88);
+     transform: translate(-15px, -15px) scale(0.88) !important;
      z-index: 1111;
  }
 
@@ -335,7 +335,7 @@ h4{
      display: none;
      height: 30px;
      line-height: 30px;
-     transform: translate(-15px, -15px) scale(0.88);
+     transform: translate(-15px, -15px) scale(0.88) !important;
      z-index: 1111;
     }
     .container .page form .entryarea input:valid{

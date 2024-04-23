@@ -24,7 +24,7 @@
                 </div>
                 <div class="entryarea">
                     <input type="password" required id="passwordL">
-                    <div class="labelline">Enter your password</div>
+                    <div class="labelline">Enter your PIN (4 digits)</div>
                     
                 </div>
                 
@@ -49,11 +49,11 @@
                     <div class="labelline">Enter your surname</div>
                 </div>
                 <div class="entryarea">
-                        <input type="email" required id="emailS">
+                        <input type="text" required id="emailS">
                         <div class="labelline">Enter your email</div>
                 </div>
                 <div class="class">
-                    <input class="numberlist" list="number" maxlength="1" required id="number1">
+                    <input class="numberlist" list="number" maxlength="1" required id="number1" placeholder="2">
                     <datalist id="number">
                         <option value="1"></option>
                         <option value="2"></option>
@@ -61,17 +61,15 @@
                         <option value="4"></option>
                         <option value="5"></option>
                     </datalist>
-                    <input class="letterlist" list="letter" maxlength="1" required id="letter1">
+                    <input class="letterlist" list="letter" maxlength="1" required id="letter1" placeholder="E">
                     <datalist id="letter">
                         <option value="A"></option>
                         <option value="B"></option>
                         <option value="C"></option>
                         <option value="D"></option>
                         <option value="E"></option>
-                        <option value="F"></option>
-                        <option value="G"></option>
                     </datalist> 
-                    <input class="sectionlist" list="section" maxlength="2" required id="section1">
+                    <input class="sectionlist" list="section" maxlength="2" required id="section1" placeholder="SA">
                     <datalist id="section">
                         <option value="SA"></option>
                         <option value="SC"></option>
@@ -82,7 +80,7 @@
                 </div>
                 <div class="entryarea">
                     <input type="password" required id="passwordS">
-                    <div class="labelline">Enter your password</div>
+                    <div class="labelline">Enter your PIN(4 digits)</div>
                 </div>
                 <div class="switch">
                     <span>Already have an account?</span>
@@ -90,7 +88,7 @@
                 </div>
                 <input type="submit" value="Signup" id="btn" onclick="clickRegistrati()">
                 <div class="switch">
-                    <span>By clicking the “Signup” button or using the social login options, you are creating an account, and agree to Terms of Service and Privacy Policy</span>
+                    <span>By clicking the “Signup” button or using the social login options, you are creating an account, and agree to our non-existing Terms of Service and Privacy Policy</span>
                 </div>
             </form>
         </div>
@@ -110,7 +108,36 @@
         </a>
     </div>
     <script>
-     
+
+
+document.addEventListener('DOMContentLoaded', setupFormValidation);
+
+function setupFormValidation() {
+    const form = document.querySelector('form');
+    const emailInput = document.getElementById('emailS');
+    const pinInput = document.getElementById('passwordS');
+
+    emailInput.addEventListener('input', validateEmail);
+    pinInput.addEventListener('input', validatePin);
+
+    function validateEmail() {
+        if (!/\S+@\S+\.\S+/.test(emailInput.value)) {
+            emailInput.style.border = '1px solid red'; // Email is invalid
+        } else {
+            emailInput.style.border = ''; // Email is valid
+        }
+    }
+
+    function validatePin() {
+        if (!/^[0-9]{4}$/.test(pinInput.value)) {
+            pinInput.style.border = '1px solid red'; // PIN is invalid
+        } else {
+            pinInput.style.border = ''; // PIN is valid
+        }
+    }
+}
+
+
      document.addEventListener("DOMContentLoaded", function() {
         const images = document.querySelectorAll('img');
         images.forEach(image => {
