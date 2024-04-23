@@ -7,6 +7,11 @@
         color: #fff;
         z-index: 0;
     }
+
+    *
+    {
+        border: 1px solid red;
+    }
     
     body{
         display: flex;
