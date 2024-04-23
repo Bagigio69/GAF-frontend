@@ -296,7 +296,12 @@ h4{
   font-size: 35px;
   top: 40%;
   color: white;
-  -webkit-text-stroke: 2.5px black; /* Spessore e colore del bordo */
+  /*-webkit-text-stroke: 2.5px black; /* Spessore e colore del bordo */
+  text-shadow: 
+    1px 0 0 black, /*right */
+    0 1px 0 black, /*top */
+    -1px 0 0 black, /*left */
+    0 -1px 0 black; /*bottom */
 }
 /*IN REALTA' E' IL RETTANGOLO IN CUI C'E' SCRITTO CONFERENZA!!!*/
 #titolo_dibattito{
@@ -855,8 +860,11 @@ align-items: center; /* Center items horizontally */
   font-size: 28px; /* Dimensione del font */
   /*-webkit-text-stroke: 1px black;*/
   color: white;
-  text-shadow:
-      0px 0px 0 #000;
+  text-shadow: 
+    1px 0 0 black, /*right */
+    0 1px 0 black, /*top */
+    -1px 0 0 black, /*left */
+    0 -1px 0 black; /*bottom */
   z-index: 10; /* Al di sopra di tutti gli altri elementi */
 }
 
