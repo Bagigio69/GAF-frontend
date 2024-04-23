@@ -850,10 +850,13 @@ align-items: center; /* Center items horizontally */
   position: absolute; /* Posizionamento assoluto rispetto al container parente */
   top: 40%; /* Centrato verticalmente */
   left: 50%; /* Centrato orizzontalmente */
-  transform: translate(-50%, -50%); 
+  transform: translate(-50%, -50%); /* Ajustamento perfetto al centro */
   color: white; /* Colore del testo */
-  font-size: 24px; /* Dimensione del font */
-  -webkit-text-stroke: 1px black;
+  font-size: 28px; /* Dimensione del font */
+  /*-webkit-text-stroke: 1px black;*/
+  color: white;
+  text-shadow:
+      0px 0px 0 #000;
   z-index: 10; /* Al di sopra di tutti gli altri elementi */
 }
 
