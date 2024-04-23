@@ -348,7 +348,7 @@
     .colonna,
     .descrizione{
         display: inline-block; 
-        /*max-width: 50%;*/ 
+        max-width: 50%;
     }
 }
 @media only screen and (max-width:390px){
