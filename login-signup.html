@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+ <html lang="it">
+ <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="login-signup.css">
+    <link rel="icon" href="immagini/logo_real.ico" type="image/x-icon">
+    <title> Esempio di pagina login/signup</title>
+ </head>
+ <body>
+    <input type="checkbox" id="check">
+    <div class="container">
+        <div class="login page">
+            <div class="heading">Login</div>
+            <form action="#">
+                <div class="switch">
+                    <span>Don't have an account?</span>
+                    <label for="check">Sign up Now</label>
+                </div>
+                <div class="entryarea">
+                    <input type="text" required id="emailL">
+                    <div class="labelline">Enter your email</div>
+                </div>
+                <div class="entryarea">
+                    <input type="password" required id="passwordL">
+                    <div class="labelline">Enter your password</div>
+                    
+                </div>
+                
+                <a href="#">
+                    Per problemi: rappresentantiliceolevi@gmail.com
+                </a>
+                
+                <input type="submit" value="Login" id="btn" onclick="clickLogin()">
+                
+                
+            </form>
+        </div>
+        <div class="signup page">
+            <div class="heading">Sign up</div>
+            <form action="#">
+                <div class="entryarea">
+                    <input type="text" required id="nameS">
+                    <div class="labelline">Enter your name</div>
+                </div>
+                <div class="entryarea">
+                    <input type="text" required id="surnameS">
+                    <div class="labelline">Enter your surname</div>
+                </div>
+                <div class="entryarea">
+                        <input type="email" required id="emailS">
+                        <div class="labelline">Enter your email</div>
+                </div>
+                <div class="class">
+                    <input class="numberlist" list="number" maxlength="1" required id="number1">
+                    <datalist id="number">
+                        <option value="1"></option>
+                        <option value="2"></option>
+                        <option value="3"></option>
+                        <option value="4"></option>
+                        <option value="5"></option>
+                    </datalist>
+                    <input class="letterlist" list="letter" maxlength="1" required id="letter1">
+                    <datalist id="letter">
+                        <option value="A"></option>
+                        <option value="B"></option>
+                        <option value="C"></option>
+                        <option value="D"></option>
+                        <option value="E"></option>
+                        <option value="F"></option>
+                        <option value="G"></option>
+                    </datalist> 
+                    <input class="sectionlist" list="section" maxlength="2" required id="section1">
+                    <datalist id="section">
+                        <option value="SA"></option>
+                        <option value="SC"></option>
+                        <option value="CL"></option>
+                        <option value="SP"></option>
+                    </datalist>
+                    <div class=""></div>
+                </div>
+                <div class="entryarea">
+                    <input type="password" required id="passwordS">
+                    <div class="labelline">Enter your password</div>
+                </div>
+                <div class="switch">
+                    <span>Already have an account?</span>
+                    <label for="check">Login Now</label>
+                </div>
+                <input type="submit" value="Signup" id="btn" onclick="clickRegistrati()">
+                <div class="switch">
+                    <span>By clicking the “Signup” button or using the social login options, you are creating an account, and agree to Terms of Service and Privacy Policy</span>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="logo-container">
+        <a href="home.html" target="_self">
+        <div id="Square"></div>
+        <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g id="Frame 1">
+            <g id="Ls-group">
+            <path id="L-left" opacity="0.7" fill-rule="evenodd" clip-rule="evenodd" d="M44.3334 12.6667H26.6667V93.6667H44.3334H72.6667V77H44.3334L44.3334 12.6667Z" fill="white"/>
+            <path id="L-right" opacity="0.7" fill-rule="evenodd" clip-rule="evenodd" d="M75.6666 108H93.3333L93.3333 27H75.6666H47.3333V43.6667H75.6666L75.6666 108Z" fill="white"/>
+            </g>
+            </g>
+        </svg>
+        <div class="h1"><h1>Liceo Levi</h1><h4>montebelluna</h4></div>
+        </a>
+    </div>
+    <script>
+     
+        function clickRegistrati() {
+            event.preventDefault();  //prevenire il refresh della pagina
+            var email = document.getElementById("emailS").value;
+            var nomestud = document.getElementById("nameS").value;
+            var cognomestud = document.getElementById("surnameS").value;
+            var classe = document.getElementById("number1").value + document.getElementById("letter1").value + document.getElementById("section1").value;
+            var pin = document.getElementById("passwordS").value;
+
+            register(email, nomestud, cognomestud, classe, pin);
+        }
+
+        function register(email, nomestud, cognomestud, classe, pin) {
+            const userData = {
+                email: email,
+                nomestud: nomestud,
+                cognomestud: cognomestud,
+                classe: classe,
+                pin: pin
+            };
+
+            fetch('https://gaf-backend.onrender.com/register', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(userData)
+            })
+            .then(response => {
+                if (!response.ok) throw new Error('Failed to fetch');
+                return response.json();
+            })
+            .then(data => {
+                if (data.message) {
+                    window.location.href = "login-signup.html"; 
+                }
+            })
+            .catch(error => {
+                console.error("Registration failed:", error);
+                alert("errore: non siamo stati in grado di registrati, refresha ");
+            });
+        }
+
+
+
+
+
+        function clickLogin() {
+            var email = document.getElementById("emailL").value;
+            var pin = document.getElementById("passwordL").value;
+            // Usa gli alert per controllare che i valori siano corretti
+            login(email, pin);
+        }
+
+
+        function login(email, pin) {
+            event.preventDefault(); 
+        // Prepara i dati da inviare
+        const userData = {
+            email,  pin
+        };
+  
+        // Invia la richiesta al server utilizzando fetch (utilizzate sempre questo format per le richieste)
+        fetch('https://gaf-backend.onrender.com/login', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(userData)
+        })
+        .then(response => response.json()) // Trasforma la risposta in JSON
+        .then(data => 
+        {
+            if (data.message) {
+            console.log("Successo:", data.message);
+            window.location.href="home.html";
+            sessionStorage.email=email;
+            // aggiungere qui il codice su cosa fare in caso di successo
+            }
+            else
+            {
+                alert("Email o PIN sbagliati: riprova");
+
+            }
+        })
+        .catch(error => {
+            console.error("Errore:", error);
+            alert("ERROR 404, refresha:");
+            // aggiungere qui il codice su cosa fare in caso di errore
+        });
+    }
+        </script>
+ </body>
+ </html>
