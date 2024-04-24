@@ -74,7 +74,7 @@
                 <button class="mostraEntryAreaButton" data-turno-id="3" id="mostraEntryAreaButton3">TURNO 3</button>
                 <div class="entryarea" style="display: none;">
                     <div class="labelline">08.00-10.00</div>
-                    <select required id="activitySelect3">
+                    <select required id="activitySelect3" class="select2-element">
                         <option value="">Seleziona un'opzione</option>
                         <option value="opzione2">Opzione 2</option>
                             <option value="opzione3">Opzione 3</option>
@@ -140,6 +140,18 @@
         <div class="h1"><h1>Liceo Levi</h1><h4>montebelluna</h4></div>
         </a>
     </div>
+
+
+    <!-- Includi jQuery e Select2 JS e CSS nel tuo HTML -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
+        <script>
+        $(document).ready(function() {
+            $('.select2-element').select2();
+        });
+        </script>
     <script>
 
 //1

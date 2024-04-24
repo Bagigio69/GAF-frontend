@@ -103,7 +103,7 @@ input[type="checkbox"] {
 }
 
 
-.container .page form .entryarea select {
+.container .page form .entryarea select{
     width: 100%;
     height: auto; /* Let CSS calculate the height based on number of options visible */
     max-height: 192px; /* Max height to show before scrolling */
@@ -118,12 +118,85 @@ input[type="checkbox"] {
 }
 
 
+
+
+
+
+
+
+
+
+/* Stilizzazione base del container di Select2 */
+.select2-container .select2-selection--single {
+    height: auto; /* Altezza automatica */
+    min-height: 40px; /* Minima altezza */
+    border: 2px solid #000000ab !important;
+    border-radius: 7px;
+    font-size: 1.2em;
+    padding: 5px 8px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.12), inset 0 1px 2px rgba(0,0,0,0.24);
+    width: 400px;
+}
+
+/* Stilizzazione del dropdown */
+.select2-container--default .select2-results>.select2-results__options {
+    max-height: 192px; /* Altezza massima prima dello scroll */
+    overflow-y: auto; /* Attiva lo scroll se necessario */
+}
+
+/* Stilizzazione degli elementi all'interno del dropdown */
+.select2-container--default .select2-results__option {
+    padding: 6px;
+    font-size: 1.2em;
+}
+
+/* Nasconde la freccia originale */
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: auto;
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    width: 20px;
+    display: none; /* Nasconde la freccia di default */
+}
+
+/* Modifiche al colore di sfondo e al colore del testo al focus o al passaggio del mouse */
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    line-height: 1.2em;
+    color: #000; /* Colore del testo */
+    background-color: #fff; /* Colore di sfondo */
+}
+
+/* Modifica le proprietà visive quando un elemento è selezionato o in focus */
+.select2-container--default .select2-selection--single .select2-selection__rendered:hover,
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: #e0e0e0; /* Cambia colore di sfondo al hover */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .container .page form .entryarea .labelline {
     position: absolute;
     top: -14px; 
     left: 12px; 
     background-color: white;
     padding: 0 5px;
+    z-index: 10;
 }
 
 
