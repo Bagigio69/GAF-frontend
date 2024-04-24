@@ -113,12 +113,17 @@
 document.addEventListener('DOMContentLoaded', setupFormValidation);
 
 function setupFormValidation() {
-    const form = document.querySelector('form');
     const emailInput = document.getElementById('emailS');
     const pinInput = document.getElementById('passwordS');
+    const numberInput = document.getElementById('number1');
+    const letterInput = document.getElementById('letter1');
+    const sectionInput = document.getElementById('section1');
 
     emailInput.addEventListener('input', validateEmail);
     pinInput.addEventListener('input', validatePin);
+    numberInput.addEventListener('input', () => validateDatalist(numberInput, 'number'));
+    letterInput.addEventListener('input', () => validateDatalist(letterInput, 'letter'));
+    sectionInput.addEventListener('input', () => validateDatalist(sectionInput, 'section'));
 
     function validateEmail() {
         if (!/\S+@\S+\.\S+/.test(emailInput.value)) {
@@ -135,7 +140,18 @@ function setupFormValidation() {
             pinInput.style.border = ''; // PIN is valid
         }
     }
+
+    function validateDatalist(input, listId) {
+        const list = document.getElementById(listId);
+        const options = Array.from(list.options).map(option => option.value);
+        if (!options.includes(input.value)) {
+            input.style.border = '1px solid red'; // The value is not in the list
+        } else {
+            input.style.border = ''; // The value is valid
+        }
+    }
 }
+
 
 
      document.addEventListener("DOMContentLoaded", function() {
