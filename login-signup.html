@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="login-signup.css">
     <link rel="icon" href="immagini/logo_real.ico" type="image/x-icon">
-    <title> Esempio di pagina login/signup</title>
+    <title> Pagina di login/signup</title>
  </head>
  <body>
     <input type="checkbox" id="check">
@@ -15,16 +15,16 @@
             <div class="heading">Login</div>
             <form action="#">
                 <div class="switch">
-                    <span>Don't have an account?</span>
+                    <span>Non hai un account?</span>
                     <label for="check">Sign up Now</label>
                 </div>
                 <div class="entryarea">
                     <input type="text" required id="emailL">
-                    <div class="labelline">Enter your email</div>
+                    <div class="labelline">Inserisci la tua email</div>
                 </div>
                 <div class="entryarea">
                     <input type="password" required id="passwordL">
-                    <div class="labelline">Enter your PIN (4 digits)</div>
+                    <div class="labelline">inserisci il tuo PIN</div>
                     
                 </div>
                 
@@ -42,48 +42,26 @@
             <form action="#">
                 <div class="entryarea">
                     <input type="text" required id="nameS">
-                    <div class="labelline">Enter your name</div>
+                    <div class="labelline">Nome</div>
                 </div>
                 <div class="entryarea">
                     <input type="text" required id="surnameS">
-                    <div class="labelline">Enter your surname</div>
+                    <div class="labelline">Cognome</div>
                 </div>
                 <div class="entryarea">
-                        <input type="text" required id="emailS">
-                        <div class="labelline">Enter your email</div>
+                        <input type="email" required id="emailS">
+                        <div class="labelline">Email</div>
                 </div>
-                <div class="class">
-                    <input class="numberlist" list="number" maxlength="1" required id="number1" placeholder="Classe">
-                    <datalist id="number">
-                        <option value="1"></option>
-                        <option value="2"></option>
-                        <option value="3"></option>
-                        <option value="4"></option>
-                        <option value="5"></option>
-                    </datalist>
-                    <input class="letterlist" list="letter" maxlength="1" required id="letter1" placeholder="Sezione">
-                    <datalist id="letter">
-                        <option value="A"></option>
-                        <option value="B"></option>
-                        <option value="C"></option>
-                        <option value="D"></option>
-                        <option value="E"></option>
-                    </datalist> 
-                    <input class="sectionlist" list="section" maxlength="2" required id="section1" placeholder="Indirizzo">
-                    <datalist id="section">
-                        <option value="SA"></option>
-                        <option value="SC"></option>
-                        <option value="CL"></option>
-                        <option value="SP"></option>
-                    </datalist>
-                    <div class=""></div>
+                <div class="entryarea">
+                    <input type="class" required id="classeS">
+                    <div class="labelline">Classe <span style="color: rgba(158, 158, 158, 0.715); font-style: italic; font-size: 0.7em;" >(Solo nel formato: 4^ESA, 5^ESA...)</span></div>
                 </div>
                 <div class="entryarea">
                     <input type="password" required id="passwordS">
-                    <div class="labelline">Enter your PIN(4 digits)</div>
+                    <div class="labelline">PIN <span style="color: rgba(158, 158, 158, 0.715); font-style: italic; font-size: 0.7em;" >(4 cifre)</span> </div>
                 </div>
                 <div class="switch">
-                    <span>Already have an account?</span>
+                    <span>Possiedi già un account?</span>
                     <label for="check">Login Now</label>
                 </div>
                 <input type="submit" value="Signup" id="btn" onclick="clickRegistrati()">
@@ -166,7 +144,7 @@ function setupFormValidation() {
             var email = document.getElementById("emailS").value;
             var nomestud = document.getElementById("nameS").value;
             var cognomestud = document.getElementById("surnameS").value;
-            var classe = document.getElementById("number1").value + document.getElementById("letter1").value + document.getElementById("section1").value;
+            var classe = document.getElementById("classeS").value;
             var pin = document.getElementById("passwordS").value;
 
             register(email, nomestud, cognomestud, classe, pin);
